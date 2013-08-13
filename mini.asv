@@ -1,0 +1,29 @@
+function [ mejor_ind ] = mini( individuos )
+%Regresa el minimo de individuos
+%   Detailed explanation goes here
+    %Generamos el  peor individuo imaginable
+    mejor_ind = Individuo( [ 100, 100, 100, 100, 100 ]);
+    mejor_ind.updAptitud();
+    
+    % Recorremos todos los individuos para obtener el mejor
+    for j=1:length(individuos)
+        ind_check = individuos(j);
+        if mejor_ind.aptitud ~= 1000 && ind_check.aptitud ~= 1000
+            if ind_check.aptitud < mejor_ind.aptitud
+                mejor_ind = ind_check;
+            end
+        elseif mejor_ind.aptitud == 1000 && ind_check.aptitud ~= 1000
+            mejor_ind = ind_check;
+        else
+            
+        end
+        
+        
+    end
+    
+    
+    
+end
+
+
+

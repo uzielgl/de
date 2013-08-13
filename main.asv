@@ -1,0 +1,36 @@
+function main
+    population = 50;
+    cr = 0.5;
+    f = 0.5;
+    max_generations = 100000
+    
+end %main
+
+
+%{
+function main
+       %Metodo main
+       cr = .7;
+       f = .5;
+       pobladores = 50;
+       maxgen = 100000;
+       gen = 1;
+       pob = Poblacion(pobladores);
+       disp('Generacion:');
+       disp(gen);
+       pob.obtenerMejorIndividuo();
+       
+       while gen < maxgen
+           pob.generarInvitados();
+           pob.calcularVectoresRuido(f);
+           pob.recombinar(cr);
+           pob.reemplazar();
+           disp('Generacion:');
+           disp(gen);
+           pob.obtenerMejorIndividuo();
+           gen = gen + 1;
+       end
+
+end
+
+%}
