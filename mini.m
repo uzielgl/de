@@ -14,7 +14,7 @@ function [ mejor_ind, pos ] = mini( individuos )
         if mejor_ind.aptitud ~= 1000 && ind_check.aptitud ~= 1000
             % De acuerdo a la aptitud actualizamos
             if ind_check.aptitud < mejor_ind.aptitud
-                mejor_ind = ind_check; 
+                mejor_ind = ind_check;
             end
         % Si el nuevo individuo tiene una aptitud diferente de 1000
         elseif mejor_ind.aptitud == 1000 && ind_check.aptitud ~= 1000

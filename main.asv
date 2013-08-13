@@ -1,8 +1,26 @@
 function main
-    population = 50;
+    population = 6;
     cr = 0.5;
     f = 0.5;
-    max_generations = 100000
+    max_generations = 100;
+    
+    p = Poblacion( population );
+    p.cr = cr;
+    p.f = f;
+    
+    for i=1:max_generations
+        %Recorremos cada elemento de la población
+        for j=1:length( p.population )
+            target = p.population( j );
+            trial = p.getTrial(j);
+            
+            p.population( j ) = mini( [target, trial] );
+        end
+        
+        % Mostramos la solución
+        mejor = mini( p.population );
+        disp(  mejor.viorest );
+    end 
     
 end %main
 

@@ -3,16 +3,16 @@ classdef Poblacion < handle
     
     properties
         % Número de habitantes
-        totalPopulation
+        totalPopulation;
         
         % Vector donde se guardará los indiviudos
-        population
+        population = [ Individuo([1,1,1,1,1]) ]; % lo forzamos para que acepte individuos
         
         % Factor de cruza
-        cr = 0.5
+        cr = 0.5;
         
         % Factor F
-        f = 0.5
+        f = 0.5;
         
     end % End properties
     
@@ -23,13 +23,13 @@ classdef Poblacion < handle
             obj.totalPopulation = totalPopulation; 
             for j=1:totalPopulation
                 i = Individuo();
-                obj.population{ j } = i;
+                obj.population( j ) = i;
             end
         end
 
         % Get the trial
         function trial = getTrial( obj, target_index )
-            target = obj.population{ target_index };
+            target = obj.population( target_index );
 
             % los indeces usados
             usados = [ target_index ];
@@ -46,7 +46,7 @@ classdef Poblacion < handle
                     end
                 end
 
-                rs( j ) = obj.population{ index }; 
+                rs( j ) = obj.population( index ); 
             end
 
             % Obtenemos el mejor individo (que es el de menor aptitud)
