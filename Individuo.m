@@ -48,6 +48,27 @@ classdef Individuo < handle
             obj.grashof = ~obj.grashof;
         end
         
+        function acotarVector(obj)
+            vector = obj.vector;
+            for i=1:length(vector)
+                if i == 1 || i == 2 || i == 3 || i == 4
+                    if vector(i) < obj.lim_inf_lon
+                        vector(i) = 2 * obj.lim_inf_lon -  vector(i);
+                    else if vector(i) > obj.lim_sup_lon
+                        vector(i) = 2 * obj.lim_sup_lon -  vector(i);
+                        end
+                    end
+                else if vector(i) < obj.lim_inf_ang
+                        vector(i) = 2 * obj.lim_inf_ang -  vector(i);
+                    else if vector(i) > obj.lim_sup_ang
+                        vector(i) = 2 * obj.lim_sup_ang -  vector(i);
+                        end
+                    end
+                end
+            end
+            obj.vector = vector;
+        end
+        
         
         
         

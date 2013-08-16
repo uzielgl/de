@@ -1,8 +1,9 @@
-function main
-    population = 6;
-    cr = 0.5;
-    f = 0.5;
-    max_generations = 100;
+function main( poblacion, cr, f)
+    
+    population = poblacion; % 50; %100
+    cr = cr; %0.9; %.9
+    f = f; %0.3; %.3
+    max_generations = 10000000;
     
     p = Poblacion( population );
     p.cr = cr;
@@ -19,7 +20,7 @@ function main
         
         % Mostramos la solución
         mejor = mini( p.population );
-        disp( [num2str(i), ': Viorest: ', num2str( mejor.viorest), ', vector:', num2str( mejor.vector) ] );
+        disp( [num2str(i), ': Viorest: ', num2str( mejor.viorest), ', aptitud: ', num2str(mejor.aptitud, '%6.20f'), ', vector: ', num2str( mejor.vector, '%6.20f') ] );
         
     end 
     

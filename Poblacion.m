@@ -70,6 +70,10 @@ classdef Poblacion < handle
             end
             
             trial = Individuo( vector_trial );
+            
+            %Acotamos su vector
+            trial.acotarVector()
+            
             trial.updAptitud();
  
         end
